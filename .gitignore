@@ -1,0 +1,55 @@
+# Dependencies
+node_modules/
+.pnp/
+.pnp.js
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Chrome Extension specific
+*.crx
+*.pem
+*.zip
+
+# Testing
+coverage/
+.nyc_output/
+
+# Cache and temp files
+.npm/
+.yarn/
+.eslintcache
+.stylelintcache
+.cache/
+tmp/
+temp/
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Package locks (uncomment if you want to ignore them)
+# package-lock.json
+# yarn.lock 
