@@ -15,7 +15,7 @@ export class GeminiService implements AIProviderService {
 
   constructor() {
     this.apiKey = process.env.GEMINI_API_KEY || '';
-    this.endpoint = process.env.GEMINI_ENDPOINT || 'https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent';
+    this.endpoint = process.env.GEMINI_ENDPOINT || 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
     
     if (!this.apiKey) {
       console.warn('Gemini API key not found. API calls will fail.');
@@ -135,14 +135,14 @@ Format your response as JSON with the following structure:
    * @param risk - Risk level from API
    * @returns Validated risk level
    */
-  private validateRisk(risk: string): string {
+  private validateRisk(risk: string): SecurityRisk {
     const validRisks = Object.values(SecurityRisk);
     const upperRisk = risk?.toUpperCase() || '';
     
     // Find matching risk level
     for (const validRisk of validRisks) {
-      if (validRisk.toUpperCase() === upperRisk) {
-        return validRisk;
+      if (String(validRisk).toUpperCase() === upperRisk) {
+        return validRisk as SecurityRisk;
       }
     }
     

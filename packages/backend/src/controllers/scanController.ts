@@ -28,7 +28,7 @@ export const analyzeWebsite = async (req: Request, res: Response) => {
     // Format response
     const response: AnalyzeResponse = {
       url: content.url,
-      risk: analysis.risk || SecurityRisk.MEDIUM,
+      risk: (analysis.risk as SecurityRisk) || SecurityRisk.MEDIUM,
       timestamp: Date.now(),
       reasons: analysis.reasons || ['No specific reasons provided'],
       confidenceScore: analysis.confidenceScore || 0.5,

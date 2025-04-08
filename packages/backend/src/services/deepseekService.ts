@@ -130,14 +130,14 @@ Format your response as JSON with the following structure:
    * @param risk - Risk level from API
    * @returns Validated risk level
    */
-  private validateRisk(risk: string): string {
+  private validateRisk(risk: string): SecurityRisk {
     const validRisks = Object.values(SecurityRisk);
     const upperRisk = risk?.toUpperCase() || '';
     
     // Find matching risk level
     for (const validRisk of validRisks) {
       if (String(validRisk).toUpperCase() === upperRisk) {
-        return String(validRisk);
+        return validRisk as SecurityRisk;
       }
     }
     

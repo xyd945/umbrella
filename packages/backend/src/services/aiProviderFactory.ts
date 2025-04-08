@@ -1,4 +1,4 @@
-import { AIProvider, WebsiteContent } from '@umbrella/types';
+import { AIProvider, WebsiteContent, SecurityRisk } from '@umbrella/types';
 import { GeminiService } from './geminiService';
 import { DeepseekService } from './deepseekService';
 
@@ -6,7 +6,7 @@ import { DeepseekService } from './deepseekService';
  * Interface for AI provider analysis results
  */
 export interface AIAnalysisResult {
-  risk: string;
+  risk: SecurityRisk | string;  // Using string as fallback, but SecurityRisk is preferred
   reasons: string[];
   confidenceScore: number;
 }
