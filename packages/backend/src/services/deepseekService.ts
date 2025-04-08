@@ -81,10 +81,38 @@ export class DeepseekService implements AIProviderService {
 URL: ${content.url}
 Title: ${content.title}
 Content: ${content.text.substring(0, 2000)}...
+Links: ${content.links.slice(0, 20).join(', ')}
+
+Perform a comprehensive security analysis with these specific checks:
+
+1. REPUTATION CHECK: Based on your knowledge, determine if this site has been reported for scams, fraud, or malicious activities. Consider if this URL appears on known blocklists or has negative reports online.
+
+2. BRAND IMPERSONATION: If the site claims to represent or be affiliated with known companies (especially big brands like Apple, Microsoft, Amazon, banks, etc.), verify if the domain is legitimate. Look for:
+   - Slight misspellings (e.g., "arnazon.com" instead of "amazon.com")
+   - Domain variations (e.g., "microsoft-support.com" instead of "microsoft.com")
+   - Unusual TLDs (e.g., ".xyz", ".online" instead of expected ".com", ".org")
+
+3. LINK CONSISTENCY: Examine the external links (especially for About, Contact, Legal pages). Check if they:
+   - Use the same domain as the main site
+   - Redirect to unexpected domains
+   - Mix HTTP and HTTPS protocols suspiciously
+
+4. CONTENT ANALYSIS: Look for:
+   - Urgency or pressure tactics
+   - Claims of unrealistic rewards, prizes, or returns
+   - Poor grammar or inconsistent language quality
+   - Requests for personal/financial information
+   - Limited or suspicious contact information
+
+5. TECHNICAL INDICATORS: Consider:
+   - Mismatched or missing SSL certificates
+   - Newly registered domains
+   - Unusual redirect chains
+   - Use of URL shorteners for critical links
 
 Please provide:
 1. A security risk assessment (SAFE, LOW, MEDIUM, HIGH, or CRITICAL)
-2. Specific reasons for your assessment (list at least 3 points)
+2. Specific reasons for your assessment (list at least 3 points with details)
 3. A confidence score between 0 and 1 indicating how certain you are
 
 Format your response as JSON with the following structure:
