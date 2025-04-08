@@ -38,6 +38,9 @@ module.exports = {
   ],
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
+    alias: {
+      '@umbrella/types': path.resolve(__dirname, '../../shared/types/dist')
+    }
   },
   output: {
     filename: '[name].js',
